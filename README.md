@@ -5,8 +5,8 @@
 ## 1- Integrantes del grupo
 
  1. Jimena López Maldonado - jimenalopez02 .
- 2. Aitana Martínez -  aitana-martinez
- 3.. Natalia Miguel Cuenca -  nataliamiguel
+ 2. Aitana Martínez -  aitana-martinez .
+ 3.. Natalia Miguel Cuenca -  nataliamiguel .
  4. Carolina PLaza -
  5. Marta Sánchez Ferrer-  marta-sferrer]
 
