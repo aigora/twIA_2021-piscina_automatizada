@@ -8,9 +8,8 @@
  2. Aitana Martínez Gayà -  aitana-martinez .
  3. Natalia Miguel Cuenca -  nataliamiguel .
  4. Carolina PLaza -  carolplaza .
- 5. Marta Sánchez Ferrer-  marta-sferrer]
+ 5. Marta Sánchez Ferrer-  marta-sferrer .
 
 ## Objetivos del trabajo
 Permitir que el usuario pueda elegir como quiera  y cuándo, la iluminación , temperatura y nivel del agua de la ´piscina´ mediante nuestro programa.
 
-[Lista de los objetivos que se persiguen con el trabajo propuesto.]
