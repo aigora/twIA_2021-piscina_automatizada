@@ -11,5 +11,6 @@
  5. Marta Sánchez Ferrer-  marta-sferrer]
 
 ## Objetivos del trabajo
+Permitir que el usuario pueda elegir como quiera  y cuándo, la iluminación , temperatura y nivel del agua de la ´piscina´ mediante nuetro programa.
 
 [Lista de los objetivos que se persiguen con el trabajo propuesto.]
