@@ -1,6 +1,6 @@
 # [Piscina automatizada]
 
-[Simulazión de una piscina con diferentes tipos de sensores que permitan al usuario elegir entre : el nivel del agua ( con un sensor de presión estético ), la iluminación mediante sensores que estén estimulados por factores como la oscuridad o el movimiento (utilizando tecnología LED) o la temperetaura del agua con un sensor con panel solar.]
+[Automatizar una piscina de manera que en función de la luz y la temperatura del exterior sea tapada. Permitir que la piscina expulse el agua de la lluvia si se supera el nivel de agua deseado, y activar iluminación interna mediante sensores .]
 
 ## 1- Integrantes del grupo
 
@@ -11,5 +11,5 @@
  5. Marta Sánchez Ferrer-  marta-sferrer .
 
 ## Objetivos del trabajo
-Permitir que el usuario pueda elegir como quiera  y cuándo, la iluminación , temperatura y nivel del agua de la ´piscina´ mediante nuestro programa.
+Simulazión de una piscina, cuya programación permita al usuario elegir entre : abrir y cerrar un toldo según la temperatura y humedad que haya, la iluminación mediante sensores que estén estimulados por factores como la oscuridad o el movimiento (utilizando tecnología LED) y controlar el nivel del agua si este aumenta por factores externos como la lluvia.
 
