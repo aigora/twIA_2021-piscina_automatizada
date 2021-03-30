@@ -1,6 +1,6 @@
 # Piscina automatizada
 
-Automatizar una piscina de manera que en función de la luz y la temperatura del exterior sea tapada. Permitir que la piscina expulse el agua de la lluvia si se supera el nivel de agua deseado, y activar iluminación interna mediante sensores.
+Automatizar una piscina de manera que en función de la humedad y la temperatura del exterior sea tapada. Permitir que la piscina expulse el agua de la lluvia si se supera el nivel de agua deseado, y activar iluminación interna mediante sensores.
 
 ## Integrantes del grupo
 
@@ -21,7 +21,7 @@ Simulación de una piscina, cuya programación permita al usuario elegir entre: 
 | 3. Control del nivel del agua |
 
 ## Opción 1 - *Abrir* o *Cerrar* toldo
-El programa cuenta con diferentes funciones, entre las cuales, el usurario tendrá que insertar los datos con los que desea que dicho programa se ejecute. 
+El programa cuenta con diferentes funciones, entre las cuales, el usuario tendrá que insertar los datos con los que desea que dicho programa se ejecute. 
 Primero, deberá establecer para que límites de temperatura y humedad exije que el toldo se cierre, por el contrario, permanecerá abierto. 
 
 ## Opción 2 - *Encendido* o *Apagado* de la iluminación
