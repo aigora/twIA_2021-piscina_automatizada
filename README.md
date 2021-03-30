@@ -1,6 +1,6 @@
-# [Piscina automatizada]
+# Piscina automatizada
 
-[Automatizar una piscina de manera que en función de la luz y la temperatura del exterior sea tapada. Permitir que la piscina expulse el agua de la lluvia si se supera el nivel de agua deseado, y activar iluminación interna mediante sensores.]
+Automatizar una piscina de manera que en función de la luz y la temperatura del exterior sea tapada. Permitir que la piscina expulse el agua de la lluvia si se supera el nivel de agua deseado, y activar iluminación interna mediante sensores.
 
 ## Integrantes del grupo
 
