@@ -13,3 +13,9 @@
 ## Objetivos del trabajo
 Simulación de una piscina, cuya programación permita al usuario elegir entre: abrir y cerrar un toldo según la temperatura y humedad que haya, la iluminación mediante sensores que estén estimulados por factores como la oscuridad o el movimiento (utilizando tecnología LED) y controlar el nivel del agua si este aumenta por factores externos como la lluvia.
 
+Dinámica de la aplicación 
+| Menú |
+| --- |
+| 1. *Abrir o *Cerrar toldo  |
+| 2. *Encendido o *Apagado de la iluminación |
+| 3. Control del nivel del agua |
