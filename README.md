@@ -1,6 +1,7 @@
 # Piscina automatizada
 
-Automatizar una piscina de manera que en función de la humedad y la temperatura del exterior sea tapada. Permitir que la piscina expulse el agua de la lluvia si se supera el nivel de agua deseado, y activar iluminación interna mediante sensores.
+Nuestro proyecto consiste en automatizar una piscina para facilitar al usuario su uso y manejo ante cambios de luz y adversidades meteorólogicas (lluvia y cambios de temperatura y presión); de modo que, en función de cada situación, pueda ser tapada, expulsar agua y activar la iluminación.
+
 
 ## Integrantes del grupo
 
@@ -11,41 +12,48 @@ Automatizar una piscina de manera que en función de la humedad y la temperatura
  5. Marta Sánchez Ferrer-  marta-sferrer .
 
 ## Objetivos del trabajo
-Simulación de una piscina, cuya programación permita al usuario elegir entre: abrir y cerrar un toldo según la temperatura y humedad que haya, la iluminación mediante sensores que estén estimulados por factores como la oscuridad o el movimiento (utilizando tecnología LED) y controlar el nivel del agua si este aumenta por factores externos como la lluvia.
+Desarrollar un programa en lenguaje C con objetivo de automatizar una piscina de manera que, según los valores de distintos parámetros físicos (presión, temperatura e iluminación), se lleven a cabo funciones tales como el vaciado parcial de su interior, el encendido o apagado de la iluminación y cubrirla con una lona. 
+Además, el usuario tendrá acceso a un menú para poder llevar a cabo todas estas funciones manualmente.
+
 ## Maqueta de la piscina
-Nuestro trabajo consiste en realizar una maqueta de una piscina, de tal manera que simule una real con algunas de sus funciones.
-Para ello utilizaremos un recipiente de plástico el cual perforaremos para que exista una trampilla que pueda expulsar el agua cuando se pase el nivel deseado por el usuario.
-Llevará incorporada :
-- un termómetro ( sensor de temperatura arduino  DS18B20 ) que permita al usuario saber la temperatura del agua.
-- un sensor de iluminación ( sensor LDR )
-- sensor de nivel del agua,* el cual construiremos nosotras a través de un sensor de ultrasonidos ( HC-SR04 ) y una pantalla LCD 16x2 *
+Para llevar a cabo nuestro trabajo construiremos una maqueta que simule una piscina real y algunas de sus funciones.
+Para ello utilizaremos un recipiente de plástico, el cual perforaremos para que exista una trampilla que pueda expulsar el agua cuando sobrepase el nivel deseado por el usuario.
+Llevará incorporada:
+- Un termómetro (sonda de temperatura arduino  DS18B20).
+- Un sensor de iluminación (sensor LDR).
+- Un sensor de presión barométrica (módulo BMP180).
+
 
 **Dinámica de la aplicación**
 | Menú |
 | --- |
 | 1. *Abrir* o *Cerrar* toldo  |
-| 2. *Encendido* o *Apagado* de la iluminación |
-| 3. Control del nivel del agua |
+| 2. *Temperatura* |
+| 3. *Encendido* o *Apagado* de la iluminación |
+| 4. Control del nivel del agua |
+| 5. *Automático* |
 
 ## Opción 1 - *Abrir* o *Cerrar* toldo
-El programa cuenta con diferentes funciones, entre las cuales, el usuario tendrá que insertar los datos con los que desea que dicho programa se ejecute. 
-Primero, deberá establecer para que límites de temperatura y humedad exije que el toldo se cierre, por el contrario, permanecerá abierto. 
+El usuario puede manipular la apertura y el cierre del toldo.
 
-## Opción 2 - *Encendido* o *Apagado* de la iluminación
-El usuario deberá determinar el grado de oscuridad para el que pretende que la piscina se ilumine, a la vez que la sensibilidad del sensor de movimiento, es decir, hasta que distancia detecta movimiento para activar la iluminación. 
+## Opción 2 - *Temperatura*
+Mediante el acceso a está opción, el usuario puede conocer la temperatura del interior de la piscina.
 
-## Opción 3 - Control del nivel del agua
-Por último, fijará el nivel del agua a la cual debe permanecer siempre para poder controlarla en caso de que ésta aumente a causa de una situación adversa, como por ejemplo, la lluvia. 
- 
- 
- 
- 
- 
- 
- 
- 
+## Opción 3 - *Encendido* o *Apagado* de la iluminación
+Manualmente, el usuario puede manejar la iluminación de la piscina.
+
+## Opción 4 - Control del nivel del agua
+El usuario puede conocer el nivel del agua, para así cambiarlo a su elección.
+
+## Opción 5- *Automático*
+Esta opción es el principal propósito de nuestro programa, ya que facilita al usuario el manejo de la piscina y le ahorra tiempo. 
+Primeramente, tendrá que introducir los baremos correctos entre los que se puedan encontrar los valores de la temperatura, la presión y la intensidad luminosa. 
+Así, si los valores de presión superan los fijados, se cerrará el toldo (por si fuera debido a la lluvia) y se abrirá la trampilla que expulsa agua para reestablecer los valores de presión. 
+Del mismo modo, cuando los sensores de iluminación detecten que la intensidad luminosa no es suficiente (durante la noche o si está nublado), se encenderán las luces de la piscina y, por el contrario, si hay luz suficiente, la iluminación permanecerá apagada; pero esto solo ocurre cuando el sensor de movimiento detecta movimiento a una distancia también introducida por el usuario, para evitar el gasto de luz si no hay nadie en las inmediaciones.
+
+
  ## SENSORES :
- ## sensor de temperatura
+ ## Sensor de temperatura
  El sensor de temperatura para arduino que vamos a utilizar es el DS18B20 :
  
 *fuente*:https://programarfacil.com/blog/arduino-blog/ds18b20-sensor-temperatura-arduino/
