@@ -28,7 +28,7 @@ Llevará incorporada:
 | Menú |
 | --- |
 | 1. *Abrir* o *Cerrar* toldo  |
-| 2. *Temperatura* |
+| 2. Temperatura |
 | 3. *Encendido* o *Apagado* de la iluminación |
 | 4. Control del nivel del agua |
 | 5. *Automático* |
@@ -36,7 +36,7 @@ Llevará incorporada:
 ## Opción 1 - *Abrir* o *Cerrar* toldo
 El usuario puede manipular la apertura y el cierre del toldo.
 
-## Opción 2 - *Temperatura*
+## Opción 2 - Temperatura
 Mediante el acceso a está opción, el usuario puede conocer la temperatura del interior de la piscina.
 
 ## Opción 3 - *Encendido* o *Apagado* de la iluminación
@@ -52,20 +52,30 @@ Así, si los valores de presión superan los fijados, se cerrará el toldo (por 
 Del mismo modo, cuando los sensores de iluminación detecten que la intensidad luminosa no es suficiente (durante la noche o si está nublado), se encenderán las luces de la piscina y, por el contrario, si hay luz suficiente, la iluminación permanecerá apagada; pero esto solo ocurre cuando el sensor de movimiento detecta movimiento a una distancia también introducida por el usuario, para evitar el gasto de luz si no hay nadie en las inmediaciones.
 
 
- ## SENSORES :
- ## Sensor de temperatura
- El sensor de temperatura para arduino que vamos a utilizar es el DS18B20 :
- 
-*fuente*:https://programarfacil.com/blog/arduino-blog/ds18b20-sensor-temperatura-arduino/
+ # Sensores
+ ## Medida de temperatura- Sonda de temperatura DS18B20:
+*Fuente*: https://programarfacil.com/blog/arduino-blog/ds18b20-sensor-temperatura-arduino/
 
-El sensor de temperatura DS18B20 es un dispositivo que se comunica de forma digital. Cuenta con tres terminales: Vcc, GND y el pin Data. Este sensor utiliza comunicación por  protocolo serial digital OneWire. Esté protocolo de comunicación permite enviar y recibir datos utilizando un solo cable. A diferencia de otros, que utilizan dos o más líneas de comunicación digital. Para leer el sensor con un Arduino es necesario utilizar dos librerías que deben ser instaladas antes de cargar el código a nuestra placa de desarrollo. Entonces las librerías son las siguientes:
-
-Dallas Temperature.
-OneWire
+El sensor de temperatura DS18B20 es un dispositivo que se comunica de forma digital. Cuenta con tres terminales: Vcc, GND y el pin Data y utiliza comunicación por protocolo serial digital OneWire; este protocolo de comunicación permite enviar y recibir datos utilizando un solo cable (a diferencia de otros, que utilizan dos o más líneas de comunicación digital).
+Para leer el sensor con un Arduino es necesario utilizar dos librerías que deben ser instaladas antes de cargar el código a nuestra placa de desarrollo; son las siguientes:
+- Dallas Temperature.
+- OneWire
 El DS18B20 tiene errores debido a factores externos, al ruido inherente en los circuitos eléctricos y alteraciones en el medio físico.
 
-## Sensor de iluminación
-El sensor de iluminación para arduino que vamos a utilizar es el LDR.
-Para ello se utilizará un sensor de luz LDR (light-dependent resistor), una resistencia eléctrica y un LED. La idea es que cuando la intensidad luminosa disminuya un cierto umbral, el LED se active
-El sensor LDR es un sensor resistivo (fotoresistor), es decir que su resistencia eléctrica varía en función de la luz que recibe
- ## Sensor de nivel del agua
+## Medida de intensidad luminosa- Sensor de luz LDR GL55:
+*Fuente*: https://www.luisllamas.es/medir-nivel-luz-con-arduino-y-fotoresistencia-ldr/
+El sensor LDR es un dispositivo formado por un semiconductor y su funcionamiento es tal que, al aumentar la incidencia de la luz sobre él, disminuye su resistencia.
+Este cambio de resistencia se debe a que, cuando recibe luz, el semiconductor que lo forma absorbe fotones y los electrones pasan a la banda de conducción y así disminuye su resistencia.
+Su mayor desventaja es la poca precisión y su uso limitado, ya que no puede ser usado para medir la intesidad lumínica, solo detecta los valores de "oscuridad" y "luminosidad".
+
+
+ ## Medida de cambios de presión del agua- Módulo de presión barométrica BMP180
+*Fuente*: https://naylampmechatronics.com/blog/43_tutorial-sensor-de-presion-barometrica-bmp180.html
+Como su nombre indica, este sensor mide la presión atmosférica. Para su uso es necesario descargar la librería desarrollada por Sparkfun (se puede descargar desde el link de la fuente).
+Su mayor inconveniente en nuestro proyecto es que se ve afectado por los cambios de temperatura.
+Las funciones que vamos a utilizar con este sensor son: 
+- *begin ()*: nos permite inicializar el sensor,
+- *startPressure(Sobremuestreo);*: permite iniciar la medición de presión e indica el tiempo que tarda en ofrecer el resultado,
+- *getPressure(P, T);*: da como resultado el valor de presión; hay que indicarle la temperatura, ya que ésta influye en los cálculos de la presión.
+Todas las funciones devuelven un 1, si se realizan con éxito, o un 0, si no funcionan y hay algún error.
+
