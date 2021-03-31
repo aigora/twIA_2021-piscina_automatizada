@@ -47,7 +47,9 @@ Por último, fijará el nivel del agua a la cual debe permanecer siempre para po
  ## SENSORES :
  ## sensor de temperatura
  El sensor de temperatura para arduino que vamos a utilizar es el DS18B20 :
+ 
 *fuente*:https://programarfacil.com/blog/arduino-blog/ds18b20-sensor-temperatura-arduino/
+
 El sensor de temperatura DS18B20 es un dispositivo que se comunica de forma digital. Cuenta con tres terminales: Vcc, GND y el pin Data. Este sensor utiliza comunicación por  protocolo serial digital OneWire. Esté protocolo de comunicación permite enviar y recibir datos utilizando un solo cable. A diferencia de otros, que utilizan dos o más líneas de comunicación digital. Para leer el sensor con un Arduino es necesario utilizar dos librerías que deben ser instaladas antes de cargar el código a nuestra placa de desarrollo. Entonces las librerías son las siguientes:
 
 Dallas Temperature.
