@@ -57,7 +57,7 @@ OneWire
 El DS18B20 tiene errores debido a factores externos, al ruido inherente en los circuitos eléctricos y alteraciones en el medio físico.
 
 ## Sensor de iluminación
-El sensor que iluminación para arduino que vamos a utilizar es el LDR.
+El sensor de iluminación para arduino que vamos a utilizar es el LDR.
 Para ello se utilizará un sensor de luz LDR (light-dependent resistor), una resistencia eléctrica y un LED. La idea es que cuando la intensidad luminosa disminuya un cierto umbral, el LED se active
 El sensor LDR es un sensor resistivo (fotoresistor), es decir que su resistencia eléctrica varía en función de la luz que recibe
  ## Sensor de nivel del agua
