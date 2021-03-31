@@ -16,7 +16,7 @@ Simulación de una piscina, cuya programación permita al usuario elegir entre: 
 Nuestro trabajo consiste en realizar una maqueta de una piscina, de tal manera que simule una real con algunas de sus funciones.
 Para ello utilizaremos un recipiente de plástico el cual perforaremos para que exista una trampilla que pueda expulsar el agua cuando se pase el nivel deseado por el usuario.
 Llevará incorporada :
--un termómetro ( sensor de temperatura arduino  DS18B20 ) que permita al usuario saber la temperatura del agua.
+- un termómetro ( sensor de temperatura arduino  DS18B20 ) que permita al usuario saber la temperatura del agua.
 - un sensor de iluminación ( sensor LDR )
 - sensor de nivel del agua,* el cual construiremos nosotras a través de un sensor de ultrasonidos ( HC-SR04 ) y una pantalla LCD 16x2 *
 
