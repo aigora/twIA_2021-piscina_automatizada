@@ -34,22 +34,27 @@ Llevará incorporada:
 | 5. *Automático* |
 
 **Opción 1 - *Abrir* o *Cerrar* toldo**
+
 El usuario puede manipular la apertura y el cierre del toldo.
 
 
 **Opción 2 - Temperatura**
+
 Mediante el acceso a está opción, el usuario puede conocer la temperatura del interior de la piscina.
 
 
 **Opción 3 - *Encendido* o *Apagado* de la iluminación**
+
 Manualmente, el usuario puede manejar la iluminación de la piscina.
 
 
 **Opción 4 - Control del nivel del agua**
+
 El usuario puede conocer el nivel del agua, para así cambiarlo a su elección.
 
 
 **Opción 5- *Automático***
+
 Esta opción es el principal propósito de nuestro programa, ya que facilita al usuario el manejo de la piscina y le ahorra tiempo. 
 Primeramente, tendrá que introducir los baremos correctos entre los que se puedan encontrar los valores de la temperatura, la presión y la intensidad luminosa. 
 Así, si los valores de presión superan los fijados, se cerrará el toldo (por si fuera debido a la lluvia) y se abrirá la trampilla que expulsa agua para reestablecer los valores de presión. 
