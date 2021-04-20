@@ -1,1 +1,65 @@
+//Incluyo las librerias que me he tenido que descargar desde: programa->incluir libreria
+#include <OneWire.h>
+#include <DallasTemperature.h>
 
+OneWire ourWire(2); //Comunico el programa con el pin 2 del Arduino
+DallasTemperature sensor(&ourWire);
+
+void setup() {
+  delay(1000);
+  Serial.begin(9600);
+  sensor.begin();
+}
+
+//Bucle para captar la temperatura e imprimir su valor
+void loop() {
+  sensor.requestTemperatures();
+  float temp=sensor.getTempCByIndex(0);   //Defino una variable tipo float que se llama temp, y es el valor que el sensor capta de temperatura
+  Serial.print("Temperatura= ");
+  Serial.print(temp);         //Imprime la temperatura
+  Serial.println("ºC");      //println es como print pero 'ln' es de 'new line' porque da un ENTER
+  delay(500);               //Espera medio segundo por cada toma e impresión de temperatura
+ }
+
+int pin_enableMotor = 5;       //Enable para el motor 
+int pin_control1_Motor = 4;    //Pin de control para el motor 
+int pin_control2_Motor = 3;    //Pin de control para el motor 
+}
+
+void setup() {
+
+ pinMode(pin_enableMotor, OUTPUT);
+ pinMode(pin_control1_Motor, OUTPUT);
+ pinMode(pin_control2_Motor, OUTPUT);
+
+}
+
+void loop() {
+
+  if (temp <=15)
+  {
+  digitalWrite(pin_enableMotor, HIGH);        //Habilita el motor y avanza
+  digitalWrite(pin_control1_Motor, HIGH);
+  digitalWrite(pin_control2_Motor, LOW);
+
+  delay (3000);
+   
+  digitalWrite(pin_enableMotor, LOW);        //Deshabilita el motor y se frena
+  digitalWrite(pin_control1_Motor, LOW);
+  digitalWrite(pin_control2_Motor, LOW);
+  }
+ 
+  else 
+  {
+  digitalWrite(pin_enableMotor, HIGH);      //Habilita el motor y retrocede
+  digitalWrite(pin_control1_Motor, LOW);
+  digitalWrite(pin_control2_Motor, HIGH);
+
+  delay (3000);
+
+  digitalWrite(pin_enableMotor, LOW);         //Deshabilita el motor y se frena
+  digitalWrite(pin_control1_Motor, LOW);
+  digitalWrite(pin_control2_Motor, LOW);
+
+  delay (5000);
+}
