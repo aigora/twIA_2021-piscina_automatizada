@@ -120,7 +120,7 @@ int led = 13;
 int TRIG = 10; //Variable que contiene el número del pin al cual conectemos la señal "trigger"
 int ECO = 9; //Variable que contiene el número del pin al cual conectamos la señal "echo"
 int estado = 0;
-int altura = 26; //Constante altura a la que se encuentra el sensor ultrasonido de la base de la piscina
+int altura = 13; //Constante altura a la que se encuentra el sensor ultrasonido de la base de la piscina
 int DURACION; //Variable duración para la función nivel_agua_consigna
 float DISTANCIA; //Variable distancia para la función nivel _agua_consigna
 Servo servo1 ;
@@ -264,7 +264,7 @@ void procesar_mensaje(void)
     tiempo = pulseIn(pinEcho, HIGH);//Utilizamos la función  pulseIn() para medir el tiempo del pulso/echo
     distancia = tiempo * 0.01715; //Obtenemos la distancia considerando que la señal recorre dos veces la distancia a medir y que la velocidad del sonido es 343m/s
     if (distancia >= 140) {
-      distancia = 26;
+      distancia = 13;
     }
     distancia = distancia * 100;
     numero2 = int(distancia);
@@ -530,7 +530,7 @@ void mostrar_nivel_agua(Serial* Arduino)
 	int bytes_recibidos;
 	char mensaje_in[255];
 	char mensaje_out[] = "MOSTRAR_NIVEL_AGUA";
-	float altura = 9.5;
+	float altura = 13;
 	int distancia;
 	float nivel2;
 	bytes_recibidos = Send_and_Receive(Arduino, "MOSTRAR_NIVEL_AGUA", -1, mensaje_in, &distancia);
@@ -576,7 +576,7 @@ void elegir_nivel_agua(Serial* Arduino)
 	char mensaje_in[255];
 	char mensaje_out[] = "NIVEL_AGUA_CONSIGNA";
 	float nivel, x;
-	int volumen, altura = 26;
+	int volumen, altura = 13;
 	int a = 12, b = 12, c = 6;
 	volumen = a * b * c;
 	printf("\nEl volumen de su piscina es %d cm3", volumen);
