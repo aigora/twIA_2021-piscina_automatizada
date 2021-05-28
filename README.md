@@ -6,8 +6,7 @@ Nuestro proyecto consiste en automatizar una piscina para facilitar al usuario s
 ## Integrantes del grupo
 
  1. Jimena López Maldonado - jimenalopez02 .
- 2. Aitana Martínez Gayà -  aitana-martinez .
- 3. Natalia Miguel Cuenca -  nataliamiguel .
+ 2. Natalia Miguel Cuenca -  nataliamiguel .
 
 
 ## Objetivos del trabajo
@@ -96,27 +95,21 @@ Las funciones que vamos a utilizar con este sensor son:
 Todas las funciones devuelven un 1, si se realizan con éxito, o un 0, si no funcionan y hay algún error.
 
 # Código de Arduino
-//Jimena
 #include <Servo.h>
-//Natalia
 #include <OneWire.h>
 #include <DallasTemperature.h>
 
-//Jimena
+
 #define pinTrigger 10
 #define pinEcho 9
 //Nat temperatura
 OneWire ourWire(2); //Comunico el programa con el pin 2 del Arduino
 DallasTemperature sensor(&ourWire);
 
-
-//Natalia Luces
 int analogInPin = A0;
 int analogValue = 0;
 int led = 13;
 
-
-//Jimena
 int TRIG = 10; //Variable que contiene el número del pin al cual conectemos la señal "trigger"
 int ECO = 9; //Variable que contiene el número del pin al cual conectamos la señal "echo"
 int estado = 0;
@@ -128,49 +121,24 @@ float distancia; //Variable distancia para la función mostrar_nivel_agua, de ti
 int numero2;
 long tiempo; //Variable tiempo para la función mostrar_nivel_agua
 
-//Aitana:
-Servo servoMotor;
 
 void setup()
 {
   delay(1000);
   Serial.begin(9600);
 
-  //Natalia
   sensor.begin();
   pinMode(led, OUTPUT);
 
-  //Jimena
   pinMode(pinTrigger, OUTPUT); //Configuramoms el pin de "trigger" como salida
   pinMode(pinEcho, INPUT);  //Configuramoms el pin de "echo" como entrada
   digitalWrite(pinTrigger, LOW);//Ponemos en voltaje bajo(0V) el pin de "trigger"
-  // servo1.attach(8);
-  //Aitana:
-  servoMotor.attach(4); //Iniciamos el servo para que empiece a trabajar con el pin 4
-  Serial.begin(9600);
-  servoMotor.write(0); //Inicializamos al ángulo 0 el servomotor;
 
 
 }
 
 void loop()
 {
-  /* //CREO Q ESTO LO PUEDO BORRAR
-    //PARA TEMPERATURA
-    sensor.requestTemperatures();
-    float temp = sensor.getTempCByIndex(0);
-
-    //PARA LUCES AUTOMATICAS!!!!:
-    analogValue = analogRead(analogInPin);
-    Serial.println(analogValue);
-    delay(10);
-    if (analogValue < 800) {
-    digitalWrite(led, HIGH);
-    } else {
-    digitalWrite(led, LOW);
-    }
-  */
-
 
   if (Serial.available() > 0)  // Si hay mensajes procedentes del PC
     procesar_mensaje();
@@ -189,7 +157,6 @@ void loop()
 // Resto de acciones
 
 
-//JIMENA:
 float medir_distancia(void)
 {
   float DISTANCIA;
@@ -227,9 +194,6 @@ void procesar_mensaje(void)
   }
   else if (cadena.equals("ILUMINACION")) // Y así sucesivamente con todos los posibles mensajes
   {
-    /*analogValue = analogRead(analogInPin);
-      numero1 = (int)analogValue;
-      Serial.println(numero1);*/
     numero1 = digitalRead(led);
     Serial.println(numero1);
 
@@ -254,7 +218,6 @@ void procesar_mensaje(void)
   {
     digitalWrite(led, HIGH);
   }
-  //JIMENA:
   else if (cadena.equals("MOSTRAR_NIVEL_AGUA")) // Entre las comillas se pone el texto del mensaje que se espera
   {
     digitalWrite(pinTrigger, HIGH);//Ponemos en voltaje alto(5V) el pin de "trigger"
@@ -272,8 +235,6 @@ void procesar_mensaje(void)
     Serial.println(numero2);
     delay(10);          //Nos mantenemos en esta línea durante 100ms antes de terminar el loop
   }
-
-  //JIMENA:
   else if (cadena.equals("NIVEL_AGUA_CONSIGNA")) // Y así sucesivamente con todos los posibles mensajes
   {
     digitalWrite(TRIG, HIGH);
@@ -295,38 +256,6 @@ void procesar_mensaje(void)
       servo1.write(0);
     }
   }
-  //AITANA
-  else if (cadena.equals("CERRAR_TOLDO"))
-  {
-    for (int i = 0; i <= 180; i++)
-    {
-      servoMotor.write(i);
-      delay(3000);
-    }
-  }
-  else if (cadena.equals("ABRIR_TOLDO"))
-  {
-    for (int i = 179; i > 0; i--)
-    {
-      servoMotor.write(i);
-      delay(3000);
-    }
-  }
-  else if (cadena.equals("TEMP_TOLDO"))
-  {
-    sensor.requestTemperatures();
-    temp = sensor.getTempCByIndex(0);
-    temp = temp * 100;
-    numero3 = int(temp);
-    if (numero3 < 2000) {
-
-    }
-
-  }
-
-
-
-
 }
 
 
@@ -360,16 +289,8 @@ void luces(Serial*);
 void automatico(Serial*);
 void apagar_luces(Serial*);
 void encender_luces(Serial*);
-//JIMENA
 void mostrar_nivel_agua(Serial*);
 void elegir_nivel_agua(Serial*);
-
-//AITANA
-void toldo(Serial*);
-void abrir_toldo(Serial* );
-void cerrar_toldo(Serial* );
-void temp_toldo(Serial* );
-
 
 int main(void)
 {
@@ -443,38 +364,7 @@ void mostrar_temp(Serial* Arduino) {
 		printf("\nLa temperatura es %.2fºC",temp2);
 	}
 }
-void toldo(Serial* Arduino) {
-	int opc;
-	printf("\nDesea:\n1.Abrir el toldo\n2.Cerrar el toldo");
-	scanf_s("%d", &opc);
-	switch (opc) {
-	case 1:
-		abrir_toldo(Arduino);
-		break;
-	case 2:
-		cerrar_toldo(Arduino);
-		break;
-	}
-}
 
-void cerrar_toldo(Serial* Arduino)
-{
-	int bytes_recibidos;
-	char mensaje_in[200];
-	char mensaje_out[] = "CERRAR_TOLDO";
-	int var;
-	bytes_recibidos = Send_and_Receive(Arduino, " CERRAR_TOLDO", 1, mensaje_in, &var);
-}
-
-void abrir_toldo(Serial* Arduino)
-{
-	int bytes_recibidos;
-	char mensaje_in[200];
-	char mensaje_out[] = "ABRIR_TOLDO";
-	int var;
-
-	bytes_recibidos = Send_and_Receive(Arduino, " ABRIR_TOLDO", 1, mensaje_in, &var);
-}
 
 void luces(Serial* Arduino) {
 	int bytes;
@@ -524,7 +414,6 @@ void encender_luces(Serial* Arduino) {
 	
 }
 
-//Jimena
 void mostrar_nivel_agua(Serial* Arduino)
 {
 	int bytes_recibidos;
@@ -546,30 +435,21 @@ void mostrar_nivel_agua(Serial* Arduino)
 
 
 void automatico(Serial* Arduino) {
-	//elegir_nivel_agua(Arduino);
-	//temp_toldo(Arduino);
+	elegir_nivel_agua(Arduino);
 	int bytes_recibidos;
 	char mensaje_entr[200];
 	char mensaje_sal[] = "AUTOMATICO";
 	int var;
+	char tecla;
 	bytes_recibidos = Send_and_Receive(Arduino, "AUTOMATICO", 1, mensaje_entr, &var);
-	do {
+
+	while (!_kbhit())
+	{
 		automatico(Arduino);
-	} while (mensaje_entr[0] < '8');
-	
+	}
+	tecla = _getch();
 }
 
-
-void temp_toldo(Serial* Arduino) {
-	int bytes_recibidos;
-	char mensaje_entr[200];
-	char mensaje_sal[] = "TEMP_TOLDO";
-	int var;
-	bytes_recibidos = Send_and_Receive(Arduino, "TEMP_TOLDO", 1, mensaje_entr, &var);
-}
-
-
-//Jimena
 void elegir_nivel_agua(Serial* Arduino)
 {
 	int bytes_recibidos;
